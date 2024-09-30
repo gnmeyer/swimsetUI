@@ -19,26 +19,51 @@ struct ContentView: View {
                         Text("\(workout.distance) yards")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
-//                        VStack(alignment: .leading) {
-//                            ForEach(workout.swimset_ids) { swimset_id in
-//                                network.getSwimSets(uuid: swimset_id)
-//                            }
-//                        }
-                        
                         Button("Sign In", systemImage: "doc.text", action: Void)
                             .labelStyle(.iconOnly)
+                        
                     }
                     .frame(width: 230, alignment: .leading)
                     .padding()
                     .background(Color(#colorLiteral(red: 0.6667672396, green: 0.7527905703, blue: 1, alpha: 0.2662717301)))
-                    .cornerRadius(20)
+                    .cornerRadius(10)
                 }
+                
+                VStack(alignment: .trailing) {
+                    VStack() {
+                        
+                            ForEach(network.swimsets) { swimset in
+                                HStack() {
+                                    Text(swimset.title)
+                                        .bold()
+                                    Text("\(swimset.distance) yards")
+                                    Text("x\(swimset.reps)")
+                                    Text("\(swimset.rest)s rest")
+                                }
+                                VStack() {
+                                    Text("test")
+                                    
+                                }
+                            }
+                            
+                        
+                    }
+                    
+                .frame(width: 230, alignment: .leading)
+                .padding()
+                .background(Color(#colorLiteral(red: 0.6667672396, green: 0.7527905703, blue: 1, alpha: 0.2662717301)))
+                .cornerRadius(10)
+                    
+                }
+                
             }
+            
 
         }
         .padding(.vertical)
         .onAppear {
             network.getWorkouts()
+            network.getSwimSets()
         }
     }
 }
@@ -50,8 +75,8 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-func Void() {
-    
+func Void(){
+
 }
 //import SwiftUI
 //

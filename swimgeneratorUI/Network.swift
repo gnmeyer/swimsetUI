@@ -41,8 +41,8 @@ class Network: ObservableObject {
         dataTask.resume()
     }
     
-    func getSwimSets(uuid: String) {
-        guard let url = URL(string: "http://127.0.0.1:8080/swimsets/\(uuid)") else { fatalError("Missing URL") }
+    func getSwimSets() {
+        guard let url = URL(string: "http://127.0.0.1:8080/swimsets") else { fatalError("Missing URL") }
         
         let urlRequest = URLRequest(url: url)
         
