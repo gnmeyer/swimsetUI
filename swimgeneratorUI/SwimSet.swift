@@ -13,4 +13,5 @@ struct SwimSet:Identifiable, Decodable {
     var distance: Int
     var rest: Int
     var reps: Int
+    var stroke_ids: [UUID]
 }
