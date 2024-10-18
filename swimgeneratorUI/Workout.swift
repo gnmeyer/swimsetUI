@@ -7,9 +7,17 @@
 
 import Foundation
 
-struct Workout:Identifiable, Decodable {
+struct Workout:Identifiable, Codable {
     var id: UUID
     var title: String
     var distance: Int
-    var swimset_ids: [UUID]
+    var swimSets: [SwimSet]
+    
+    init(id: UUID = UUID(), title: String, distance: Int, swimSets: [SwimSet] = []) {
+        self.id = id
+        self.title = title
+        self.distance = distance
+        self.swimSets = swimSets
+    }
 }
+

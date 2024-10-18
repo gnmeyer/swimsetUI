@@ -2,47 +2,39 @@ import SwiftUI
 
 struct ContentView: View {
 //    @EnvironmentObject var network: Network
+    
     var body: some View {
-        
         NavigationView {
-            VStack(spacing: 20) {
-                NavigationLink(destination: NewWorkoutView()) {
-                    Text("New Workout")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
+            VStack {
+                Spacer()
+                List {
+                        NavigationLink(destination: NewWorkoutView()) {
+                            Text("New Workout")
+
+                        }
+                        NavigationLink(destination: WorkoutsView()) {
+                            Text("Workouts")
+
+                        }
+                        NavigationLink(destination: SwimSetsView()) {
+                            Text("Sets")
+
+                        }
+                        .navigationTitle("Swim Generator")
+                        NavigationLink(destination: StrokeView()) {
+                            Text("Strokes")
+
+                        }
+                        .navigationTitle("Swim Generator")
+                        
+//                    }
                 }
-                NavigationLink(destination: WorkoutsView()) {
-                    Text("Workouts")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-                NavigationLink(destination: SwimSetsView()) {
-                    Text("Sets")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-                .navigationTitle("Swim Generator")
-                NavigationLink(destination: StrokeView()) {
-                    Text("Strokes")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.blue) // Button background color
-                        .foregroundColor(.white) // Text color inside the button
-                        .cornerRadius(8) // Rounded corners
-                }
-                .navigationTitle("Swim Generator")
-                
             }
+
+        
         }
+        
+        
     }
 
     
@@ -56,9 +48,10 @@ struct WorkoutsView: View {
                 Text("All Workouts")
                     .font(.title)
                     .bold()
+//                List {
                 
                 VStack(alignment: .leading) {
-    
+                    
                     ForEach(network.workouts) { workout in
                         HStack(alignment:.top) {
                             Text(workout.title)
@@ -78,6 +71,7 @@ struct WorkoutsView: View {
                     }
                     
                 }
+//            }
 
             }
             .padding(.vertical)
@@ -179,7 +173,6 @@ struct StrokeView: View {
 }
 
 struct NewWorkoutView: View {
-    
     @State private var WorkoutTitle = ""
     @State private var WorkoutDescription = "Optional Description"
     @State private var intensity = 10.0
@@ -192,8 +185,9 @@ struct NewWorkoutView: View {
     
     var body: some View {
         Form {
+            Text("Set Workout Parameters")
+                .bold()
             TextField("Workout Name", text: $WorkoutTitle)
-                .padding()
             
             Text("Intensity")
             Slider(
@@ -230,11 +224,7 @@ struct NewWorkoutView: View {
             Toggle("Include BreastStroke", isOn: $includeBreaststroke)
             Toggle("Include Butterfly", isOn: $includeButterfly)
             
-              Button("Submit", action: {
-                  
-              })
-            
-            Spacer()
+        
             Text("Workout Preview")
                 .font(.headline)
                 .colorScheme(.dark)
@@ -260,7 +250,84 @@ struct NewWorkoutView: View {
 
                 }
             }
+            
+            Button("Submit", action: {
+                 
+                
+                var swimSwimStroke: [SwimWorkout.SwimSwimSet.SwimSwimStroke] = []
+                
+                
+                if includeFreestyle {
+                    let swimFreestyle = SwimWorkout.SwimSwimSet.SwimSwimStroke(title: "Freestyle")
+                    swimSwimStroke.append(swimFreestyle)
+                }
+                
+                if includeBackstroke {
+                    let swimBackstroke = SwimWorkout.SwimSwimSet.SwimSwimStroke(title: "Backstroke")
+                    swimSwimStroke.append(swimBackstroke)
+                }
+                
+                if includeBreaststroke {
+                    let swimBreastroke = SwimWorkout.SwimSwimSet.SwimSwimStroke(title: "Breaststroke")
+                    swimSwimStroke.append(swimBreastroke)
+                }
+                
+                if includeButterfly {
+                    let swimButterfly = SwimWorkout.SwimSwimSet.SwimSwimStroke(title: "Butterfly")
+                    swimSwimStroke.append(swimButterfly)
+                }
+                
+                // case 2 sets
+                if distance > 500 {
+                    var rest = 0
+                    if intensity < 5 {
+                        rest = 10
+                    } else {
+                        rest = 30
+                    }
+                    
+                    let swimSet1 = SwimWorkout.SwimSwimSet(title: "Warm-Up", distance: 250, rest: rest, reps: 2, swimStrokes: swimSwimStroke)
+                    
+                    print(swimSet1)
+                    let workout = SwimWorkout(title: "Swim Workout", distance: Int(distance), swimSets: [swimSet1])
+                    
+                    print(workout)
+                    
+                    // Convert the workout to JSON
+                    do {
+                        let encoder = JSONEncoder()
+                        encoder.outputFormatting = .prettyPrinted // To make the JSON output readable
+                        let jsonData = try encoder.encode(workout)
+                        
+                        // Convert the JSON data to a string for printing (optional)
+                        if let jsonString = String(data: jsonData, encoding: .utf8) {
+                            print(jsonString)
+                        }
+                        
+                    } catch {
+                        print("Error encoding workout to JSON: \(error)")
+                    }
+                    
+                } else {
+                    let swimSet1 = SwimWorkout.SwimSwimSet(title: "Set One", distance: 500, rest: 15, reps: 1, swimStrokes: swimSwimStroke)
+                    
+                    let workout = SwimWorkout(title: "Swim Workout", distance: 500, swimSets: [swimSet1])
+                    print(workout)
+                }
+                
+                
+                
+            })
 
+        }
+    }
+}
+
+struct TestListView: View {
+    private var int = 10
+    var body: some View {
+        List {
+            
         }
     }
 }

@@ -7,11 +7,18 @@
 
 import Foundation
 
-struct SwimSet:Identifiable, Decodable {
+struct SwimSet:Identifiable, Decodable, Hashable {
     var id: UUID
     var title: String
     var distance: Int
     var rest: Int
     var reps: Int
-    var stroke_ids: [UUID]
+    var strokes: [Stroke]
+    
+    init(id: UUID = UUID(), title: String, distance: Int, rest: Int, reps: Int, strokes: [Stroke] = []) {
+        self.id = id
+        self.title = title
+        self.distance = distance
+        self.strokes = swimSets
+    }
 }
