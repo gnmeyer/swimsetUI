@@ -10,11 +10,13 @@ import SwiftData
 
 @main
 struct swimgeneratorUIApp: App {
-    var network = Network()
+//    var network = Network()
     
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Stroke.self,
+            SwimSet.self,
+            Workout.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -27,7 +29,7 @@ struct swimgeneratorUIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            StartView()
+            HomeView()
         }
         .modelContainer(sharedModelContainer)
     }

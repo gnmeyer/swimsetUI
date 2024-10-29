@@ -34,13 +34,15 @@ struct CreateStrokeView: View {
                     } catch {
                         print("Error saving stroke: \(error)")
                     }
+                    StrokeTitle = ""
+                    StrokeDescription = ""
                 })
             }
-            List {
-                ForEach(strokes) { stroke in
-                    Text(stroke.title)
-                }
-            }
+//            List {
+//                ForEach(strokes) { stroke in
+//                    Text(stroke.title)
+//                }
+//            }
         }
     }
     
