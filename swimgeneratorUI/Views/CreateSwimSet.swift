@@ -132,7 +132,6 @@ struct StrokeMultipleSelectionRow: View {
 struct CreateSwimSetView_Previews: PreviewProvider {
     static var previews: some View {
         CreateSwimSet()
-            .modelContainer(for: [SwimSet.self])
-            .modelContainer(for: [Stroke.self])
+            .modelContainer(for: [SwimSet.self, Stroke.self, Workout.self])
     }
 }

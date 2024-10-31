@@ -71,6 +71,6 @@ struct DisplaySwimSetsView: View {
 struct DisplaySwimSetsView_Previews: PreviewProvider {
     static var previews: some View {
         DisplaySwimSetsView()
-            .modelContainer(for: [SwimSet.self])
+            .modelContainer(for: [SwimSet.self, Stroke.self])
     }
 }

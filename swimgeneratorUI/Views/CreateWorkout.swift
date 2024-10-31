@@ -103,7 +103,6 @@ struct MultipleSelectionRow: View {
 struct CreateWorkout_Previews: PreviewProvider {
     static var previews: some View {
         CreateWorkoutView()
-            .modelContainer(for: [Workout.self])
-            .modelContainer(for: [SwimSet.self])
+            .modelContainer(for: [SwimSet.self, Stroke.self, Workout.self])
     }
 }

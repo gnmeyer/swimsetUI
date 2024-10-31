@@ -59,6 +59,6 @@ struct DisplayStrokeView: View {
 struct DisplayStrokeView_Previews: PreviewProvider {
     static var previews: some View {
         DisplayStrokeView()
-            .modelContainer(for: [Stroke.self])
+            .modelContainer(for: [SwimSet.self, Stroke.self, Workout.self])
     }
 }

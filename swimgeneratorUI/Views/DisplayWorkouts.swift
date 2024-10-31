@@ -65,6 +65,6 @@ struct DisplayWorkoutsView: View {
 struct DisplayWorkoutsView_Previews: PreviewProvider {
     static var previews: some View {
         DisplayWorkoutsView()
-            .modelContainer(for: [Workout.self])
+            .modelContainer(for: [SwimSet.self, Stroke.self, Workout.self])
     }
 }
