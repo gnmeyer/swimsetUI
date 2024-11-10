@@ -10,12 +10,12 @@ import SwiftData
 
 struct CreateStrokeView: View {
     
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) var modelContext
     
-    @State private var StrokeTitle = ""
-    @State private var StrokeDescription = ""
+    @State  var StrokeTitle = ""
+    @State  var StrokeDescription = ""
     
-    @Query private var strokes: [Stroke]
+    @Query  var strokes: [Stroke]
     
     var body: some View {
         VStack {
@@ -23,29 +23,25 @@ struct CreateStrokeView: View {
                 Text("Create a New Stroke")
                 TextField("Stroke Name", text: $StrokeTitle)
                 TextField("Stroke Description", text: $StrokeDescription)
-                Button("Submit", action: {
-                    let newStroke = Stroke(title: StrokeTitle, desc: StrokeDescription)
-                    modelContext.insert(newStroke)
-                    print("Stroke created: Title: \(newStroke.title)")
-                    //Insert telemetry here
-                    do {
-                        try modelContext.save() // Save the context to persist the data
-                        print("Stroke saved: \(newStroke.title)")
-                    } catch {
-                        print("Error saving stroke: \(error)")
-                    }
-                    StrokeTitle = ""
-                    StrokeDescription = ""
-                })
+                Button("Submit", action: submitStroke)
             }
-//            List {
-//                ForEach(strokes) { stroke in
-//                    Text(stroke.title)
-//                }
-//            }
         }
     }
     
+     func submitStroke() {
+        let newStroke = Stroke(title: StrokeTitle, desc: StrokeDescription)
+        modelContext.insert(newStroke)
+        print("Stroke created: Title: \(newStroke.title)")
+        
+        do {
+            try modelContext.save() // Save the context to persist the data
+            print("Stroke saved: \(newStroke.title)")
+            StrokeTitle = ""
+            StrokeDescription = ""
+        } catch {
+            print("Error saving stroke: \(error)")
+        }
+    }
 }
 
 

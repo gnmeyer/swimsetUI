@@ -98,11 +98,6 @@ struct CreateSwimSet: View {
                     SwimSetTitle = ""
                 })
             }
-//            List {
-//                ForEach(swimsets) { swimset in
-//                    Text(swimset.title)
-//                }
-//            }
             
         }
 

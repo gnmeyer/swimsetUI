@@ -8,10 +8,49 @@
 import SwiftUI
 import SwiftData
 
+import OpenTelemetryApi
+import OpenTelemetrySdk
+import StdoutExporter
+//import ResourceExtension
+import OpenTelemetryProtocolExporterHttp
+
+
+class TraceManager {
+    static let shared = TraceManager()
+    
+    init() {
+        
+        let url = URL(string: "http://localhost:4318")
+        let otlpHttpTraceExporter = OtlpHttpTraceExporter(endpoint: url!)
+
+        let spanExporter = StdoutSpanExporter(isDebug: true)
+        let spanProcessor = SimpleSpanProcessor(spanExporter: spanExporter)
+
+        
+        // Specify the application name and the hostname.
+        let resource = Resource(attributes: [
+            ResourceAttributes.serviceName.rawValue: AttributeValue.string("<your-service-name>"),
+            ResourceAttributes.hostName.rawValue: AttributeValue.string("<your-host-name>")
+        ])
+
+        // Configure the TracerProvider.
+        OpenTelemetry.registerTracerProvider(tracerProvider: TracerProviderBuilder()
+                                             .add(spanProcessor: BatchSpanProcessor(spanExporter: otlpHttpTraceExporter)) // Report data to Managed Service for OpenTelemetry.
+                                             .with(resource: resource)
+                                             .build())
+        
+//        OpenTelemetry.registerTracerProvider(tracerProvider: TracerProviderBuilder().add(spanProcessor: spanProcessor).with(resource: resource).build())
+        
+        print("TraceManager initialized with LoggingSpanExporter")
+
+    }
+}
+
 struct StrokeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var strokes: [Stroke]
-    
+
+    let tracer = OpenTelemetry.instance.tracerProvider.get(instrumentationName: "YourInstrumentationName", instrumentationVersion: "1.0")
     
     var body: some View {
             ZStack {
@@ -49,7 +88,7 @@ struct StrokeView: View {
                                 }
                             }
                             .onDelete(perform: deleteItems)
-                            .listRowBackground(Color.clear) // Transparent background for rows
+                            .listRowBackground(Color.clear) 
                         }
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) {
@@ -83,18 +122,28 @@ struct StrokeView: View {
             }
         }
     private func addItem() {
+        print("addItem called")
+        let span = tracer.spanBuilder(spanName: "GET /rolldice").setSpanKind(spanKind: .client).startSpan()
+        print("Span started: \(span)")
         withAnimation {
             let newStroke = Stroke(title: "test", desc: "test")
             modelContext.insert(newStroke)
+            print("New stroke inserted: \(newStroke)")
         }
+        span.end()
+        print("Span ended: \(span)")
     }
 
     private func deleteItems(offsets: IndexSet) {
+        let span = tracer.spanBuilder(spanName: "Delete").setSpanKind(spanKind: .client).startSpan()
+        span.end()
+        print("test delete")
         withAnimation {
             for index in offsets {
                 modelContext.delete(strokes[index])
             }
         }
+        
     }
 }
 

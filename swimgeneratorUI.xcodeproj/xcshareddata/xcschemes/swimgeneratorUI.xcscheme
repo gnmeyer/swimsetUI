@@ -35,7 +35,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6C4746972CA710AE00C3BAA1"
+               BlueprintIdentifier = "6C468C7C2CDBDD19007DE34E"
                BuildableName = "swimgeneratorUITests.xctest"
                BlueprintName = "swimgeneratorUITests"
                ReferencedContainer = "container:swimgeneratorUI.xcodeproj">
@@ -49,6 +49,17 @@
                BlueprintIdentifier = "6C4746A12CA710AE00C3BAA1"
                BuildableName = "swimgeneratorUIUITests.xctest"
                BlueprintName = "swimgeneratorUIUITests"
+               ReferencedContainer = "container:swimgeneratorUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6C468C8E2CDBE265007DE34E"
+               BuildableName = "XCTests.xctest"
+               BlueprintName = "XCTests"
                ReferencedContainer = "container:swimgeneratorUI.xcodeproj">
             </BuildableReference>
          </TestableReference>

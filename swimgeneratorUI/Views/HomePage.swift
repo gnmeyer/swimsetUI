@@ -8,10 +8,25 @@
 import SwiftUI
 import SwiftData
 
+import OpenTelemetryApi
+import OpenTelemetrySdk
+//import StdoutExporter
+//import ResourceExtension
+
+//var resources = DefaultResources().get()
+//
+//let instrumentationScopeName = "OTLPHTTPExporter"
+//let instrumentationScopeVersion = "semver:0.1.0"
+//
+//let spanExporter = StdoutSpanExporter();
+//let spanProcessor = SimpleSpanProcessor(spanExporter: spanExporter)
+
+
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var swimsets: [SwimSet]
     @Query private var strokes: [Stroke]
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -19,7 +34,9 @@ struct HomeView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 30) { // Spacing between each navigation link
+            
                     Spacer()
+
                     // "Strokes" Navigation Link with Icon and Large Font
                     NavigationLink(destination: StrokeView()) {
                         HStack {

@@ -11,7 +11,6 @@ import SwiftData
 @Model
 //class SwimSet:Identifiable, Codable {
 class SwimSet:Identifiable {
-//    var id: UUID
     var title: String
     var distance: Int
     var rest: Int
@@ -19,7 +18,6 @@ class SwimSet:Identifiable {
     var strokes: [Stroke]
     
     init(title: String, distance: Int, rest: Int, reps: Int, strokes: [Stroke] = []) {
-//        self.id = id
         self.title = title
         self.distance = distance
         self.rest = rest

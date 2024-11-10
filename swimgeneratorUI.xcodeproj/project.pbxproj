@@ -6,15 +6,22 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6C468CF92CE07B96007DE34E /* OpenTelemetryApi in Frameworks */ = {isa = PBXBuildFile; productRef = 6C468CF82CE07B96007DE34E /* OpenTelemetryApi */; };
+		6C468CFB2CE07BAA007DE34E /* OpenTelemetrySdk in Frameworks */ = {isa = PBXBuildFile; productRef = 6C468CFA2CE07BAA007DE34E /* OpenTelemetrySdk */; };
+		6C468CFD2CE07BFF007DE34E /* OpenTelemetryProtocolExporterHTTP in Frameworks */ = {isa = PBXBuildFile; productRef = 6C468CFC2CE07BFF007DE34E /* OpenTelemetryProtocolExporterHTTP */; };
+		6C468CFF2CE07CAE007DE34E /* StdoutExporter in Frameworks */ = {isa = PBXBuildFile; productRef = 6C468CFE2CE07CAE007DE34E /* StdoutExporter */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
-		6C4746992CA710AE00C3BAA1 /* PBXContainerItemProxy */ = {
+		6C468C812CDBDD19007DE34E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C4746802CA710AC00C3BAA1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6C4746872CA710AC00C3BAA1;
 			remoteInfo = swimgeneratorUI;
 		};
-		6C4746A32CA710AE00C3BAA1 /* PBXContainerItemProxy */ = {
+		6C468C932CDBE265007DE34E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C4746802CA710AC00C3BAA1 /* Project object */;
 			proxyType = 1;
@@ -24,60 +31,72 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C468C7D2CDBDD19007DE34E /* swimgeneratorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swimgeneratorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C468C8F2CDBE265007DE34E /* XCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C4746882CA710AC00C3BAA1 /* swimgeneratorUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swimgeneratorUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C4746982CA710AE00C3BAA1 /* swimgeneratorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swimgeneratorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C4746A22CA710AE00C3BAA1 /* swimgeneratorUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swimgeneratorUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		6C468C7E2CDBDD19007DE34E /* swimgeneratorUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = swimgeneratorUITests;
+			sourceTree = "<group>";
+		};
+		6C468C902CDBE265007DE34E /* XCTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = XCTests;
+			sourceTree = "<group>";
+		};
 		6C47468A2CA710AC00C3BAA1 /* swimgeneratorUI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = swimgeneratorUI;
 			sourceTree = "<group>";
 		};
-		6C47469B2CA710AE00C3BAA1 /* swimgeneratorUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = swimgeneratorUITests;
-			sourceTree = "<group>";
-		};
-		6C4746A52CA710AE00C3BAA1 /* swimgeneratorUIUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = swimgeneratorUIUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6C468C7A2CDBDD19007DE34E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C468C8C2CDBE265007DE34E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6C4746852CA710AC00C3BAA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C4746952CA710AE00C3BAA1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C47469F2CA710AE00C3BAA1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				6C468CF92CE07B96007DE34E /* OpenTelemetryApi in Frameworks */,
+				6C468CFD2CE07BFF007DE34E /* OpenTelemetryProtocolExporterHTTP in Frameworks */,
+				6C468CFF2CE07CAE007DE34E /* StdoutExporter in Frameworks */,
+				6C468CFB2CE07BAA007DE34E /* OpenTelemetrySdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C468CEF2CDED570007DE34E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6C47467F2CA710AC00C3BAA1 = {
 			isa = PBXGroup;
 			children = (
 				6C47468A2CA710AC00C3BAA1 /* swimgeneratorUI */,
-				6C47469B2CA710AE00C3BAA1 /* swimgeneratorUITests */,
-				6C4746A52CA710AE00C3BAA1 /* swimgeneratorUIUITests */,
+				6C468C7E2CDBDD19007DE34E /* swimgeneratorUITests */,
+				6C468C902CDBE265007DE34E /* XCTests */,
+				6C468CEF2CDED570007DE34E /* Frameworks */,
 				6C4746892CA710AC00C3BAA1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,8 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				6C4746882CA710AC00C3BAA1 /* swimgeneratorUI.app */,
-				6C4746982CA710AE00C3BAA1 /* swimgeneratorUITests.xctest */,
-				6C4746A22CA710AE00C3BAA1 /* swimgeneratorUIUITests.xctest */,
+				6C468C7D2CDBDD19007DE34E /* swimgeneratorUITests.xctest */,
+				6C468C8F2CDBE265007DE34E /* XCTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +114,52 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6C468C7C2CDBDD19007DE34E /* swimgeneratorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C468C832CDBDD19007DE34E /* Build configuration list for PBXNativeTarget "swimgeneratorUITests" */;
+			buildPhases = (
+				6C468C792CDBDD19007DE34E /* Sources */,
+				6C468C7A2CDBDD19007DE34E /* Frameworks */,
+				6C468C7B2CDBDD19007DE34E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C468C822CDBDD19007DE34E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6C468C7E2CDBDD19007DE34E /* swimgeneratorUITests */,
+			);
+			name = swimgeneratorUITests;
+			packageProductDependencies = (
+			);
+			productName = swimgeneratorUITests;
+			productReference = 6C468C7D2CDBDD19007DE34E /* swimgeneratorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6C468C8E2CDBE265007DE34E /* XCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C468C952CDBE265007DE34E /* Build configuration list for PBXNativeTarget "XCTests" */;
+			buildPhases = (
+				6C468C8B2CDBE265007DE34E /* Sources */,
+				6C468C8C2CDBE265007DE34E /* Frameworks */,
+				6C468C8D2CDBE265007DE34E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C468C942CDBE265007DE34E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6C468C902CDBE265007DE34E /* XCTests */,
+			);
+			name = XCTests;
+			packageProductDependencies = (
+			);
+			productName = XCTests;
+			productReference = 6C468C8F2CDBE265007DE34E /* XCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6C4746872CA710AC00C3BAA1 /* swimgeneratorUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6C4746AC2CA710AE00C3BAA1 /* Build configuration list for PBXNativeTarget "swimgeneratorUI" */;
@@ -112,56 +177,14 @@
 			);
 			name = swimgeneratorUI;
 			packageProductDependencies = (
+				6C468CF82CE07B96007DE34E /* OpenTelemetryApi */,
+				6C468CFA2CE07BAA007DE34E /* OpenTelemetrySdk */,
+				6C468CFC2CE07BFF007DE34E /* OpenTelemetryProtocolExporterHTTP */,
+				6C468CFE2CE07CAE007DE34E /* StdoutExporter */,
 			);
 			productName = swimgeneratorUI;
 			productReference = 6C4746882CA710AC00C3BAA1 /* swimgeneratorUI.app */;
 			productType = "com.apple.product-type.application";
-		};
-		6C4746972CA710AE00C3BAA1 /* swimgeneratorUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6C4746AF2CA710AE00C3BAA1 /* Build configuration list for PBXNativeTarget "swimgeneratorUITests" */;
-			buildPhases = (
-				6C4746942CA710AE00C3BAA1 /* Sources */,
-				6C4746952CA710AE00C3BAA1 /* Frameworks */,
-				6C4746962CA710AE00C3BAA1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6C47469A2CA710AE00C3BAA1 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				6C47469B2CA710AE00C3BAA1 /* swimgeneratorUITests */,
-			);
-			name = swimgeneratorUITests;
-			packageProductDependencies = (
-			);
-			productName = swimgeneratorUITests;
-			productReference = 6C4746982CA710AE00C3BAA1 /* swimgeneratorUITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		6C4746A12CA710AE00C3BAA1 /* swimgeneratorUIUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6C4746B22CA710AE00C3BAA1 /* Build configuration list for PBXNativeTarget "swimgeneratorUIUITests" */;
-			buildPhases = (
-				6C47469E2CA710AE00C3BAA1 /* Sources */,
-				6C47469F2CA710AE00C3BAA1 /* Frameworks */,
-				6C4746A02CA710AE00C3BAA1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6C4746A42CA710AE00C3BAA1 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				6C4746A52CA710AE00C3BAA1 /* swimgeneratorUIUITests */,
-			);
-			name = swimgeneratorUIUITests;
-			packageProductDependencies = (
-			);
-			productName = swimgeneratorUIUITests;
-			productReference = 6C4746A22CA710AE00C3BAA1 /* swimgeneratorUIUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -170,19 +193,19 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					6C468C7C2CDBDD19007DE34E = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 6C4746872CA710AC00C3BAA1;
+					};
+					6C468C8E2CDBE265007DE34E = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 6C4746872CA710AC00C3BAA1;
+					};
 					6C4746872CA710AC00C3BAA1 = {
 						CreatedOnToolsVersion = 16.0;
-					};
-					6C4746972CA710AE00C3BAA1 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 6C4746872CA710AC00C3BAA1;
-					};
-					6C4746A12CA710AE00C3BAA1 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 6C4746872CA710AC00C3BAA1;
 					};
 				};
 			};
@@ -195,34 +218,37 @@
 			);
 			mainGroup = 6C47467F2CA710AC00C3BAA1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6C4746892CA710AC00C3BAA1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				6C4746872CA710AC00C3BAA1 /* swimgeneratorUI */,
-				6C4746972CA710AE00C3BAA1 /* swimgeneratorUITests */,
-				6C4746A12CA710AE00C3BAA1 /* swimgeneratorUIUITests */,
+				6C468C7C2CDBDD19007DE34E /* swimgeneratorUITests */,
+				6C468C8E2CDBE265007DE34E /* XCTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6C468C7B2CDBDD19007DE34E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C468C8D2CDBE265007DE34E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6C4746862CA710AC00C3BAA1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C4746962CA710AE00C3BAA1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C4746A02CA710AE00C3BAA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,21 +258,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6C468C792CDBDD19007DE34E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C468C8B2CDBE265007DE34E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6C4746842CA710AC00C3BAA1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C4746942CA710AE00C3BAA1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C47469E2CA710AE00C3BAA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,19 +282,91 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6C47469A2CA710AE00C3BAA1 /* PBXTargetDependency */ = {
+		6C468C822CDBDD19007DE34E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6C4746872CA710AC00C3BAA1 /* swimgeneratorUI */;
-			targetProxy = 6C4746992CA710AE00C3BAA1 /* PBXContainerItemProxy */;
+			targetProxy = 6C468C812CDBDD19007DE34E /* PBXContainerItemProxy */;
 		};
-		6C4746A42CA710AE00C3BAA1 /* PBXTargetDependency */ = {
+		6C468C942CDBE265007DE34E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6C4746872CA710AC00C3BAA1 /* swimgeneratorUI */;
-			targetProxy = 6C4746A32CA710AE00C3BAA1 /* PBXContainerItemProxy */;
+			targetProxy = 6C468C932CDBE265007DE34E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6C468C842CDBDD19007DE34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = csuchico.gnmeyer.swimgeneratorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swimgeneratorUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/swimgeneratorUI";
+			};
+			name = Debug;
+		};
+		6C468C852CDBDD19007DE34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = csuchico.gnmeyer.swimgeneratorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swimgeneratorUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/swimgeneratorUI";
+			};
+			name = Release;
+		};
+		6C468C962CDBE265007DE34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = csuchico.gnmeyer.XCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swimgeneratorUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/swimgeneratorUI";
+			};
+			name = Debug;
+		};
+		6C468C972CDBE265007DE34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = csuchico.gnmeyer.XCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swimgeneratorUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/swimgeneratorUI";
+			};
+			name = Release;
+		};
 		6C4746AA2CA710AE00C3BAA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -444,77 +542,27 @@
 			};
 			name = Release;
 		};
-		6C4746B02CA710AE00C3BAA1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = csuchico.gnmeyer.swimgeneratorUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swimgeneratorUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/swimgeneratorUI";
-			};
-			name = Debug;
-		};
-		6C4746B12CA710AE00C3BAA1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = csuchico.gnmeyer.swimgeneratorUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swimgeneratorUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/swimgeneratorUI";
-			};
-			name = Release;
-		};
-		6C4746B32CA710AE00C3BAA1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = csuchico.gnmeyer.swimgeneratorUIUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = swimgeneratorUI;
-			};
-			name = Debug;
-		};
-		6C4746B42CA710AE00C3BAA1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = csuchico.gnmeyer.swimgeneratorUIUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = swimgeneratorUI;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6C468C832CDBDD19007DE34E /* Build configuration list for PBXNativeTarget "swimgeneratorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C468C842CDBDD19007DE34E /* Debug */,
+				6C468C852CDBDD19007DE34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C468C952CDBE265007DE34E /* Build configuration list for PBXNativeTarget "XCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C468C962CDBE265007DE34E /* Debug */,
+				6C468C972CDBE265007DE34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6C4746832CA710AC00C3BAA1 /* Build configuration list for PBXProject "swimgeneratorUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -533,25 +581,41 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C4746AF2CA710AE00C3BAA1 /* Build configuration list for PBXNativeTarget "swimgeneratorUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6C4746B02CA710AE00C3BAA1 /* Debug */,
-				6C4746B12CA710AE00C3BAA1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6C4746B22CA710AE00C3BAA1 /* Build configuration list for PBXNativeTarget "swimgeneratorUIUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6C4746B32CA710AE00C3BAA1 /* Debug */,
-				6C4746B42CA710AE00C3BAA1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/open-telemetry/opentelemetry-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6C468CF82CE07B96007DE34E /* OpenTelemetryApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = OpenTelemetryApi;
+		};
+		6C468CFA2CE07BAA007DE34E /* OpenTelemetrySdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = OpenTelemetrySdk;
+		};
+		6C468CFC2CE07BFF007DE34E /* OpenTelemetryProtocolExporterHTTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = OpenTelemetryProtocolExporterHTTP;
+		};
+		6C468CFE2CE07CAE007DE34E /* StdoutExporter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = StdoutExporter;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6C4746802CA710AC00C3BAA1 /* Project object */;
 }
