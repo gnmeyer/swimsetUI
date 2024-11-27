@@ -11,6 +11,11 @@
 		6C468CFB2CE07BAA007DE34E /* OpenTelemetrySdk in Frameworks */ = {isa = PBXBuildFile; productRef = 6C468CFA2CE07BAA007DE34E /* OpenTelemetrySdk */; };
 		6C468CFD2CE07BFF007DE34E /* OpenTelemetryProtocolExporterHTTP in Frameworks */ = {isa = PBXBuildFile; productRef = 6C468CFC2CE07BFF007DE34E /* OpenTelemetryProtocolExporterHTTP */; };
 		6C468CFF2CE07CAE007DE34E /* StdoutExporter in Frameworks */ = {isa = PBXBuildFile; productRef = 6C468CFE2CE07CAE007DE34E /* StdoutExporter */; };
+		6C51D8942CE197D500C69F0E /* JaegerExporter in Frameworks */ = {isa = PBXBuildFile; productRef = 6C51D8932CE197D500C69F0E /* JaegerExporter */; };
+		6C51D8962CE198B700C69F0E /* ResourceExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 6C51D8952CE198B700C69F0E /* ResourceExtension */; };
+		6CFCF5512CF108F4005371ED /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 6CFCF5502CF108F4005371ED /* GRPC */; };
+		6CFCF5542CF11009005371ED /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 6CFCF5532CF11009005371ED /* NIO */; };
+		6CFCF5562CF116F5005371ED /* OpenTelemetryProtocolExporter in Frameworks */ = {isa = PBXBuildFile; productRef = 6CFCF5552CF116F5005371ED /* OpenTelemetryProtocolExporter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,9 +79,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C468CF92CE07B96007DE34E /* OpenTelemetryApi in Frameworks */,
+				6CFCF5562CF116F5005371ED /* OpenTelemetryProtocolExporter in Frameworks */,
+				6CFCF5542CF11009005371ED /* NIO in Frameworks */,
+				6C51D8942CE197D500C69F0E /* JaegerExporter in Frameworks */,
+				6C51D8962CE198B700C69F0E /* ResourceExtension in Frameworks */,
 				6C468CFD2CE07BFF007DE34E /* OpenTelemetryProtocolExporterHTTP in Frameworks */,
 				6C468CFF2CE07CAE007DE34E /* StdoutExporter in Frameworks */,
 				6C468CFB2CE07BAA007DE34E /* OpenTelemetrySdk in Frameworks */,
+				6CFCF5512CF108F4005371ED /* GRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +191,11 @@
 				6C468CFA2CE07BAA007DE34E /* OpenTelemetrySdk */,
 				6C468CFC2CE07BFF007DE34E /* OpenTelemetryProtocolExporterHTTP */,
 				6C468CFE2CE07CAE007DE34E /* StdoutExporter */,
+				6C51D8932CE197D500C69F0E /* JaegerExporter */,
+				6C51D8952CE198B700C69F0E /* ResourceExtension */,
+				6CFCF5502CF108F4005371ED /* GRPC */,
+				6CFCF5532CF11009005371ED /* NIO */,
+				6CFCF5552CF116F5005371ED /* OpenTelemetryProtocolExporter */,
 			);
 			productName = swimgeneratorUI;
 			productReference = 6C4746882CA710AC00C3BAA1 /* swimgeneratorUI.app */;
@@ -220,6 +235,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */,
+				6CFCF54F2CF108F4005371ED /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				6CFCF5522CF11009005371ED /* XCRemoteSwiftPackageReference "swift-nio" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6C4746892CA710AC00C3BAA1 /* Products */;
@@ -592,6 +609,22 @@
 				minimumVersion = 1.11.0;
 			};
 		};
+		6CFCF54F2CF108F4005371ED /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.24.2;
+			};
+		};
+		6CFCF5522CF11009005371ED /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.76.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -614,6 +647,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
 			productName = StdoutExporter;
+		};
+		6C51D8932CE197D500C69F0E /* JaegerExporter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = JaegerExporter;
+		};
+		6C51D8952CE198B700C69F0E /* ResourceExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = ResourceExtension;
+		};
+		6CFCF5502CF108F4005371ED /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CFCF54F2CF108F4005371ED /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		6CFCF5532CF11009005371ED /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CFCF5522CF11009005371ED /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
+		};
+		6CFCF5552CF116F5005371ED /* OpenTelemetryProtocolExporter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C468C9F2CDEC7FA007DE34E /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = OpenTelemetryProtocolExporter;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

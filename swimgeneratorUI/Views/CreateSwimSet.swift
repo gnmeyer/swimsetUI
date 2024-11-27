@@ -10,6 +10,8 @@ import SwiftData
 
 struct CreateSwimSet: View {
 
+    private let tracer = TraceManager.shared.tracer
+
     @Environment(\.modelContext) private var modelContext
     
     @State private var SwimSetTitle = ""
@@ -26,22 +28,16 @@ struct CreateSwimSet: View {
     var body: some View {
         VStack {
             Text("Swim Sets")
+                .font(.largeTitle)
+                .fontWeight(.heavy)
+                .padding(.top, 20)
             Form {
                 TextField("Set Title", text: $SwimSetTitle)
                 VStack {
-                    Text("Distance \(Int(distance))")
-                    Slider(
-                        value: $distance,
-                        in: 0...2000.0,
-                        step: 25
-                    ) {
-                    } minimumValueLabel: {
-                        Text("0")
-                    } maximumValueLabel: {
-                        Text("10")
-                    } onEditingChanged: { editing in
-                        isEditing = editing
-                    }
+                    // Multi-selection of SwimSets
+                    Text("Select Distance")
+                    
+
                     Text("Rest \(Int(rest))")
                     Slider(
                         value: $rest,
@@ -89,12 +85,16 @@ struct CreateSwimSet: View {
                     modelContext.insert(newSwimSet)
                     print("SwimSet created: Title: \(newSwimSet.title)")
                     //Insert telemetry here
+                    let span = tracer.spanBuilder(spanName: "/createSwimStroke").setSpanKind(spanKind: .client).startSpan()
+
                     do {
                         try modelContext.save() // Save the context to persist the data
+                        span.setAttribute(key: "swimset_name", value: newSwimSet.title);
                         print("SwimSet saved: \(newSwimSet.title)")
                     } catch {
                         print("Error saving stroke: \(error)")
                     }
+                    span.end()
                     SwimSetTitle = ""
                 })
             }
@@ -104,6 +104,23 @@ struct CreateSwimSet: View {
     }
     
 
+}
+
+struct DistanceSelectionButton: View {
+    var isSelected: Bool
+    var action: () -> Void
+
+    var body: some View {
+        Button(action: self.action) {
+            HStack {
+                Text("strokes.title")
+                if self.isSelected {
+                    Spacer()
+                    Image(systemName: "checkmark")
+                }
+            }
+        }
+    }
 }
 
 struct StrokeMultipleSelectionRow: View {

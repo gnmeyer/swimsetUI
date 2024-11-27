@@ -12,6 +12,8 @@ struct WorkoutsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var workouts: [Workout]
     
+    private let tracer = TraceManager.shared.tracer
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.9)
@@ -79,11 +81,14 @@ struct WorkoutsView: View {
     }
 
     private func deleteItems(offsets: IndexSet) {
+        let span = tracer.spanBuilder(spanName: "/deleteWorkouts").setSpanKind(spanKind: .client).startSpan()
         withAnimation {
             for index in offsets {
+                span.setAttribute(key: "workout_name", value: workouts[index].title);
                 modelContext.delete(workouts[index])
             }
         }
+        span.end()
     }
 }
 

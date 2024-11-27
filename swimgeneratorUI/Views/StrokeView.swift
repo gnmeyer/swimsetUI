@@ -11,46 +11,16 @@ import SwiftData
 import OpenTelemetryApi
 import OpenTelemetrySdk
 import StdoutExporter
-//import ResourceExtension
+import ResourceExtension
 import OpenTelemetryProtocolExporterHttp
+import JaegerExporter
 
-
-class TraceManager {
-    static let shared = TraceManager()
-    
-    init() {
-        
-        let url = URL(string: "http://localhost:4318")
-        let otlpHttpTraceExporter = OtlpHttpTraceExporter(endpoint: url!)
-
-        let spanExporter = StdoutSpanExporter(isDebug: true)
-        let spanProcessor = SimpleSpanProcessor(spanExporter: spanExporter)
-
-        
-        // Specify the application name and the hostname.
-        let resource = Resource(attributes: [
-            ResourceAttributes.serviceName.rawValue: AttributeValue.string("<your-service-name>"),
-            ResourceAttributes.hostName.rawValue: AttributeValue.string("<your-host-name>")
-        ])
-
-        // Configure the TracerProvider.
-        OpenTelemetry.registerTracerProvider(tracerProvider: TracerProviderBuilder()
-                                             .add(spanProcessor: BatchSpanProcessor(spanExporter: otlpHttpTraceExporter)) // Report data to Managed Service for OpenTelemetry.
-                                             .with(resource: resource)
-                                             .build())
-        
-//        OpenTelemetry.registerTracerProvider(tracerProvider: TracerProviderBuilder().add(spanProcessor: spanProcessor).with(resource: resource).build())
-        
-        print("TraceManager initialized with LoggingSpanExporter")
-
-    }
-}
 
 struct StrokeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var strokes: [Stroke]
 
-    let tracer = OpenTelemetry.instance.tracerProvider.get(instrumentationName: "YourInstrumentationName", instrumentationVersion: "1.0")
+    private let tracer = TraceManager.shared.tracer
     
     var body: some View {
             ZStack {
@@ -122,27 +92,26 @@ struct StrokeView: View {
             }
         }
     private func addItem() {
-        print("addItem called")
-        let span = tracer.spanBuilder(spanName: "GET /rolldice").setSpanKind(spanKind: .client).startSpan()
-        print("Span started: \(span)")
+        
         withAnimation {
             let newStroke = Stroke(title: "test", desc: "test")
             modelContext.insert(newStroke)
             print("New stroke inserted: \(newStroke)")
         }
-        span.end()
-        print("Span ended: \(span)")
+
     }
 
     private func deleteItems(offsets: IndexSet) {
-        let span = tracer.spanBuilder(spanName: "Delete").setSpanKind(spanKind: .client).startSpan()
-        span.end()
-        print("test delete")
+    
+        let span = tracer.spanBuilder(spanName: "/deleteStrokes").setSpanKind(spanKind: .client).startSpan()
         withAnimation {
             for index in offsets {
+                span.setAttribute(key: "stroke_name", value: strokes[index].title);
                 modelContext.delete(strokes[index])
             }
         }
+        
+        span.end()
         
     }
 }

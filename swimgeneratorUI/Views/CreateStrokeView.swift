@@ -10,6 +10,8 @@ import SwiftData
 
 struct CreateStrokeView: View {
     
+    private let tracer = TraceManager.shared.tracer
+
     @Environment(\.modelContext) var modelContext
     
     @State  var StrokeTitle = ""
@@ -29,10 +31,12 @@ struct CreateStrokeView: View {
     }
     
      func submitStroke() {
+        let span = tracer.spanBuilder(spanName: "/createStrokes").setSpanKind(spanKind: .client).startSpan()
+
         let newStroke = Stroke(title: StrokeTitle, desc: StrokeDescription)
         modelContext.insert(newStroke)
         print("Stroke created: Title: \(newStroke.title)")
-        
+
         do {
             try modelContext.save() // Save the context to persist the data
             print("Stroke saved: \(newStroke.title)")
@@ -41,6 +45,8 @@ struct CreateStrokeView: View {
         } catch {
             print("Error saving stroke: \(error)")
         }
+        span.setAttribute(key: "stroke_name", value: newStroke.title);
+        span.end()
     }
 }
 

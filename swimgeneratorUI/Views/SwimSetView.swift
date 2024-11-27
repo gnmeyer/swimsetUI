@@ -4,6 +4,8 @@ import SwiftData
 struct SwimSetView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var swimsets: [SwimSet]
+    
+    private let tracer = TraceManager.shared.tracer
 
     var body: some View {
         ZStack {
@@ -69,14 +71,18 @@ struct SwimSetView: View {
             .shadow(radius: 10)
         }
         .padding(.horizontal)
+
     }
 
     private func deleteItems(offsets: IndexSet) {
+        let span = tracer.spanBuilder(spanName: "/deleteSwimStroke").setSpanKind(spanKind: .client).startSpan()
         withAnimation {
             for index in offsets {
+                span.setAttribute(key: "swimset_name", value: swimsets[index].title);
                 modelContext.delete(swimsets[index])
             }
         }
+        span.end()
     }
 }
 
